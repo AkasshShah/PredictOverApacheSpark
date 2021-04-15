@@ -6,5 +6,11 @@
 
 ## Setup
 
-First, I uploaded the `TrainingDataset-fixed.csv` & `ValidationDataset-fixed.csv` to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv) respectively.
+### Fix downloaded datasets
+
+First, the `.csv` files were not as expected. The `"`s didn't quite match up that caused issues with CSV openers. Also, in the true nature of `Comma-separated values`, the separator was changed from `;` to `,`.
+
+### Make datasets easy to access
+
+Then, I uploaded the `TrainingDataset-fixed.csv` & `ValidationDataset-fixed.csv` to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv) respectively. This way, it can be pulled from the web without requiring authentication.
 
