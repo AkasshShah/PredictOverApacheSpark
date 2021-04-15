@@ -6,3 +6,5 @@
 
 ## Setup
 
+First, I uploaded the `TrainingDataset-fixed.csv` & `ValidationDataset-fixed.csv` to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv) respectively.
+
