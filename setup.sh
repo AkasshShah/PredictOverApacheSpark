@@ -18,10 +18,23 @@ unzip aws-java-sdk.zip
 
 mv $x aws_sdk
 
-# set CLASSPATH variable
-
-export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*
-
 # some cleanup
 
 rm -rf aws-java-sdk.zip
+
+# get spark + hadoop
+
+wget https://apache.claz.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+
+y=$(tar -tzf spark-3.1.1-bin-hadoop2.7.tgz | head -1 | cut -f1 -d"/")
+
+tar -xvzf spark-3.1.1-bin-hadoop2.7.tgz
+
+mv $y spark_bin_hadoop
+
+rm spark-3.1.1-bin-hadoop2.7.tgz
+
+# set CLASSPATH variable
+
+export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*
+
