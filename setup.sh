@@ -20,8 +20,7 @@ mv $x aws_sdk
 
 # set CLASSPATH variable
 
-export CLASSPATH=/home/ubuntu/PredictOverApacheSpark/aws_sdk/lib/*:/home/ubuntu/PredictOverApacheSpark/aws_sdk/third-party/lib/*
-# echo $CLASSPATH
+export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*
 
 # some cleanup
 
