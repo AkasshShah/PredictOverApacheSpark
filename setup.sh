@@ -35,3 +35,11 @@ rm -rf aws-java-sdk.zip spark-3.1.1-bin-hadoop2.7.tgz
 # set CLASSPATH variable
 
 export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*
+
+# remove datasets if exist and re-get
+
+rm TrainingDataset-fixed.csv ValidationDataset-fixed.csv
+
+wget http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv
+
+wget http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv
