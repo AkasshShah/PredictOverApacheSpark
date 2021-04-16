@@ -15,7 +15,14 @@ First, the `.csv` files were not as expected. The `"`s didn't quite match up tha
 Then, I uploaded the `TrainingDataset-fixed.csv` & `ValidationDataset-fixed.csv` to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv) respectively. This way, it can be pulled from the web without requiring authentication.
 
 ### Setting up environment
-Run ```bash ./setup.sh ``` to create the environment for hadoop + spark + java
+Run ```bash ./setup.sh ``` to create the environment for hadoop + spark + java. After this, type ```bash echo $CLASSPATH``` and the output should be:
+```bash
+/home/ubuntu/PredictOverApacheSpark/aws_sdk/lib/*:/home/ubuntu/PredictOverApacheSpark/aws_sdk/third-party/lib/*:/home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/jars/*
+```
+If it is not something like listed above, then run the following command in the terminal:
+```bash
+export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*
+```
 
 ### Decide which is master and which are slaves
 
