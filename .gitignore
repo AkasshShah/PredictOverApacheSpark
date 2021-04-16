@@ -178,4 +178,5 @@ tags
 ### project stuff ###
 aws_sdk/*
 spark_bin_hadoop/*
+test/*
 
