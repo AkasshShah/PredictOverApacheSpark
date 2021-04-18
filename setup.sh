@@ -20,26 +20,27 @@ mv $x aws_sdk
 
 # get spark + hadoop
 
-wget https://apache.claz.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+wget https://apache.claz.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
 
-y=$(tar -tzf spark-3.1.1-bin-hadoop2.7.tgz | head -1 | cut -f1 -d"/")
+y=$(tar -tzf spark-3.1.1-bin-hadoop3.2.tgz | head -1 | cut -f1 -d"/")
 
-tar -xvzf spark-3.1.1-bin-hadoop2.7.tgz
+tar -xvzf spark-3.1.1-bin-hadoop3.2.tgz
 
 mv $y spark_bin_hadoop
 
 # some cleanup
 
-rm -rf aws-java-sdk.zip spark-3.1.1-bin-hadoop2.7.tgz
+rm -rf aws-java-sdk.zip spark-3.1.1-bin-hadoop3.2.tgz
 
-# set CLASSPATH variable
+# set CLASSPATH variable & PATH variable
 
-export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*
+export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*:
+export PATH=$PATH:$(pwd)/spark_bin_hadoop/bin
 
 # remove datasets if exist and re-get
 
-rm TrainingDataset-fixed.csv ValidationDataset-fixed.csv
+rm TrainingDataset-fixed-libsvm.txt ValidationDataset-fixed-libsvm.txt
 
-wget http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv
+wget http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed-libsvm.txt
 
-wget http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv
+wget http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed-libsvm.txt

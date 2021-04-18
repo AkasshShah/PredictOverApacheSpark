@@ -6,22 +6,29 @@
 
 ## Setup
 
-### Fix downloaded datasets
+### Pre-processing the datasets
 
 First, the `.csv` files were not as expected. The `"`s didn't quite match up that caused issues with CSV openers. Also, in the true nature of `Comma-separated values`, the separator was changed from `;` to `,`.
 
+Then, using tools like [csv2libsvm](https://github.com/zygmuntz/phraug/blob/master/csv2libsvm.py) to produce the libcsv files. Alternatively, we could have passed on csv files to the model, but the model was really well set-up with LIBSVM formatted files.
+
 ### Make datasets easy to access
 
-Then, I uploaded the `TrainingDataset-fixed.csv` & `ValidationDataset-fixed.csv` to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed.csv) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed.csv) respectively. This way, it can be pulled from the web without requiring authentication.
+Then, I uploaded the libsvm files to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed-libsvm.txt) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed-libsvm.txt) respectively. This way, it can be pulled from the web without requiring authentication.
+
+### Make 5 ec2 instances
+
+Well, it's just that :P. Make 5 ec2 instances (with appropriate permissions and access).
 
 ### Setting up environment
+
 Run ```bash ./setup.sh ``` to create the environment for hadoop + spark + java. After this, type ```bash echo $CLASSPATH``` and the output should be:
 ```bash
 /home/ubuntu/PredictOverApacheSpark/aws_sdk/lib/*:/home/ubuntu/PredictOverApacheSpark/aws_sdk/third-party/lib/*:/home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/jars/*
 ```
 If it is not something like listed above, then run the following command in the terminal:
 ```bash
-export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*
+export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*:
 ```
 
 ### Decide which is master and which are slaves
