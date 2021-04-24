@@ -4,7 +4,7 @@
 # update & install all necessary packages
 
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install -y default-jre default-jdk unzip
+sudo apt install -y default-jre default-jdk unzip python3-pip
 
 # get the aws sdk for java
 
@@ -44,3 +44,5 @@ rm TrainingDataset-fixed-libsvm.txt ValidationDataset-fixed-libsvm.txt
 wget http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed-libsvm.txt
 
 wget http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed-libsvm.txt
+
+pip3 install pyspark numpy
