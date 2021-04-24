@@ -46,3 +46,8 @@ wget http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed-libsvm.txt
 wget http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed-libsvm.txt
 
 pip3 install pyspark numpy
+
+# super unsecure. if really gonna use this, better to create keys at runtime and not display them publicly
+
+chmod 600 ./ssh_keys/node_comms
+cat ssh_keys/node_comms.pub >> ~/.ssh/authorized_keys
