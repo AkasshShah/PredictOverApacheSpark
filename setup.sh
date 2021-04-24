@@ -51,3 +51,9 @@ pip3 install pyspark numpy
 
 chmod 600 ./ssh_keys/node_comms
 cat ssh_keys/node_comms.pub >> ~/.ssh/authorized_keys
+
+# now we add the ip addresses of workers to the workers file
+
+# we should do this manually in terminal for the master only.
+# cat ip_of_workers > spark_bin_hadoop/conf/workers
+
