@@ -31,5 +31,11 @@ If it is not something like listed above, then run the following command in the 
 export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*:
 ```
 
+After that, the master needs to run the following code in the terminal:
+```bash
+eval `ssh-agent`
+ssh-add ssh_keys/node_comms
+```
+
 ### Decide which is master and which are slaves
 
