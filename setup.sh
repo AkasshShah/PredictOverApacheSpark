@@ -38,7 +38,8 @@ mv $y spark_bin_hadoop
 
 # some cleanup
 
-rm -rf aws-java-sdk.zip spark-3.1.1-bin-hadoop3.2.tgz
+# rm -rf aws-java-sdk.zip 
+rm -rf spark-3.1.1-bin-hadoop3.2.tgz
 
 
 
