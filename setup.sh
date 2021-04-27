@@ -70,7 +70,7 @@ rm -rf aws-java-sdk.zip spark-3.1.1-bin-hadoop3.2.tgz
 
 pip3 install pyspark numpy
 
-# super unsecure. if really gonna use this, better to create keys at runtime and not display them publicly
+# super unsecure. if really gonna use this, better to create keys at runtime and not display them publicly like i am in my github, lol
 
 chmod 600 ./ssh_keys/node_comms
 cat ssh_keys/node_comms.pub >> ~/.ssh/authorized_keys
