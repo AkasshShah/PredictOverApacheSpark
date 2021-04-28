@@ -39,3 +39,22 @@ ssh-add ssh_keys/node_comms
 
 ### Decide which is master and which are slaves
 
+## Creating the Dockerfile
+
+Install [Docker on your Ubuntu vm](https://docs.docker.com/engine/install/debian/)
+
+### Running into the "no more space on this device error"
+
+Try the following commands:
+```bash
+sudo mkdir -p /etc/sysconfig/
+printf "DOCKER_STORAGE_OPTIONS= - -storage-opt dm.basesize=10G" > /etc/sysconfig/docker-storage-setup
+sudo systemctl restart docker
+```
+
+And to build your docker image: try doing the following:
+```bash
+sudo docker system prune -f && sudo docker build -t testinggggg . && sudo docker system prune -f
+```
+The pruning prevents dangling containers from existing.
+
