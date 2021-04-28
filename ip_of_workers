@@ -1,5 +1,5 @@
 # ip addresses of workers go here: (without the `#` in front, of course)
 172.31.93.24 # worker1
-# 172.31.91.67 # worker2
+172.31.91.67 # worker2
 # 172.31.92.157 # worker3
 # 172.31.95.9 # worker4
