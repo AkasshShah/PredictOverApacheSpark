@@ -9,6 +9,6 @@ cat $1 | tr ";" "," > commas.csv
 
 python2 csv2libsvm.py commas.csv libsvm.txt 11 True
 
-printf "done with pre-processing"
+printf "done with pre-processing\n"
 
 python3 validation.py libsvm.txt
