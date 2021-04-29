@@ -82,7 +82,7 @@ sudo systemctl restart docker
 
 And to build your docker image: try doing the following:
 ```bash
-sudo docker system prune -f && sudo docker build -t testinggggg . && sudo docker system prune -f
+sudo docker system prune -f && sudo docker build -t testinggggg .
 ```
 The pruning prevents dangling containers from existing.
 
