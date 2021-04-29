@@ -1,0 +1,4 @@
+Github + instructions: https://github.com/AkasshShah/PredictOverApacheSpark/
+
+
+DockerHub: https://hub.docker.com/r/as2757/predict
