@@ -112,5 +112,5 @@ Now, to do the prediction:
 ```bash
 # ./predict.sh [path to file pred_data_set]
 # example
-# ./predict.sh 
+./predict.sh ValidationDataset.csv
 ```
