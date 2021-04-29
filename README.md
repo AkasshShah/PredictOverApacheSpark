@@ -86,11 +86,23 @@ sudo docker system prune -f && sudo docker build -t testinggggg .
 ```
 The pruning prevents dangling containers from existing.
 
-This particular docker image can be found on [DockerHub]() as well.
+This particular docker image can be found on [DockerHub](https://hub.docker.com/r/as2757/predict) as well.
 
 ## Prediction
 
 ### Predicting using the above-mentioned docker image
+
+First we will pull the docker image
+
+```bash
+sudo docker pull as2757/predict:lmao
+```
+
+Next we run it with a file that is not in the container. First, in the VM, we have to `cd` to the place where the file is... Let's say the file we want to give in is `"file.csv"`. so we run it accordingly:
+
+```bash
+sudo docker run -it -v `pwd`:/app/PredictOverApacheSpark/ as2757/predict:lmao ./predict.sh file.csv
+```
 
 ### Predicting without the above-mentioned docker image
 
