@@ -16,12 +16,12 @@ RUN git clone https://github.com/AkasshShah/PredictOverApacheSpark.git
 
 WORKDIR /PredictOverApacheSpark
 
-RUN ls -al
+# RUN ls -al
 
 # RUN python --version
 
-RUN python2 --version
+# RUN python2 --version
 
-RUN python3 --version
+# RUN python3 --version
 
 # we now have all the dependencies
