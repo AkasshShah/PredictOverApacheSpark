@@ -101,7 +101,7 @@ sudo docker pull as2757/predict:lmao
 Next we run it with a file that is not in the container. First, in the VM, we have to `cd` to the place where the file is... Let's say the file we want to give in is `"file.csv"`. so we run it accordingly:
 
 ```bash
-sudo docker run -it -v `pwd`:/app/PredictOverApacheSpark/ as2757/predict:lmao ./predict.sh file.csv
+sudo docker run -it -v `pwd`:/app/PredictOverApacheSpark/blue/ as2757/predict:lmao ./predict.sh blue/file.csv
 ```
 
 ### Predicting without the above-mentioned docker image
