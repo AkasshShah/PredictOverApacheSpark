@@ -14,7 +14,7 @@ Then, using tools like [csv2libsvm](https://github.com/zygmuntz/phraug/blob/mast
 
 ### Make datasets easy to access
 
-Then, I uploaded the libsvm files to my AFS account and they can now be found [here](http://web.njit.edu/~as2757/cs643/TrainingDataset-fixed-libsvm.txt) & [here](http://web.njit.edu/~as2757/cs643/ValidationDataset-fixed-libsvm.txt) respectively. This way, it can be pulled from the web without requiring authentication.
+The datasets were made part of this github-repo.
 
 ### Make 5 ec2 instances
 
@@ -37,9 +37,37 @@ eval `ssh-agent`
 ssh-add ssh_keys/node_comms
 ```
 
-### Decide which is master and which are slaves
+### Decide which is master and which are workers
+
+First, change the ip addresses in `ip_of_workers` & in `setup.sh` to match the ip addresses of your vms.
+
+In the master node, run
+```bash
+./setup-master.sh && eval `ssh-agent` && ssh-add ssh_keys/node_comms
+```
+
+### Start spark over the given 5 nodes (1 master and 4 workers)
+
+```bash
+cd spark_bin_hadoop/
+./sbin/start-all.sh
+```
+
+Now spark should be running as expected over the cluster
+
+### To train over the given data set
+
+```bash
+# cd spark_bin_hadoop/ 
+# assuming that the current working directory is spark_bin_hadoop
+
+# first we need to delete the previous save, or else it gives us an error. alternatively, we could just rename it or something...
+rm ../model_save/ -rf && ./bin/spark-submit ../scripts/d_tree_c.py
+```
 
 ## Creating the Dockerfile
+
+For this section, we assume the current working directory is back to being `~/PredictOverApacheSpark/`
 
 Install [Docker on your Ubuntu vm](https://docs.docker.com/engine/install/debian/)
 
@@ -58,3 +86,31 @@ sudo docker system prune -f && sudo docker build -t testinggggg . && sudo docker
 ```
 The pruning prevents dangling containers from existing.
 
+This particular docker image can be found on [DockerHub]() as well.
+
+## Prediction
+
+### Predicting using the above-mentioned docker image
+
+### Predicting without the above-mentioned docker image
+
+It is assumed you have this git-repo cloned and the current working directory is back to being `~/PredictOverApacheSpark/`
+
+Also, make sure python3 & python2 are installed. To check this, run:
+```bash
+python2 --version
+python3 --version
+```
+
+After this, run:
+```bash
+# if you followed along from earlier, you may already have all of these installed
+sudo apt update -y && sudo apt upgrade -y && sudo apt install -y default-jre default-jdk unzip python3-pip && pip3 install pyspark numpy
+```
+
+Now, to do the prediction:
+```bash
+# ./predict.sh [path to file pred_data_set]
+# example
+# ./predict.sh 
+```

@@ -1,3 +1,5 @@
+import os
+import sys
 from pyspark.ml import Pipeline
 from pyspark.ml.regression import RandomForestRegressor
 from pyspark.ml.feature import VectorIndexer
@@ -5,19 +7,20 @@ from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.sql import SparkSession
 from pyspark.ml import PipelineModel
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
-import sys
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.mllib.clustering import KMeans, KMeansModel
 
 
 if __name__ == "__main__":
 
-    spark = SparkSession\
-        .builder\
-        .appName("how_good_are_you?")\
-        .getOrCreate()
+    sconf = SparkConf().setAppName("how_good_is_it").set('spark.sql.warehouse.dir', 'file://opt/spark/spark-warehouse/')
+    sc = SparkContext(conf=sconf)  # SparkContext
+    spark = SparkSession.builder.appName("how_good_is_it").getOrCreate()
 
     testData = spark.read.format("libsvm").load(sys.argv[1])
 
-    model = PipelineModel.load("model_save")
+    model = PipelineModel.load("model_save/")
 
     # Make predictions.
     predictions = model.transform(testData)
@@ -35,4 +38,5 @@ if __name__ == "__main__":
     # print(rfModel)  # summary only
     # $example off$
 
+    sc.stop()
     spark.stop()

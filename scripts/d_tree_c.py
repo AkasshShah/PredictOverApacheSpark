@@ -1,15 +1,22 @@
+import os
+import sys
 from pyspark.ml import Pipeline
-from pyspark.ml.classification import DecisionTreeClassifier
-from pyspark.ml.feature import StringIndexer, VectorIndexer
-from pyspark.ml.evaluation import MulticlassClassificationEvaluator
-from pyspark.ml import PipelineModel
+from pyspark.ml.regression import RandomForestRegressor
+from pyspark.ml.feature import VectorIndexer, StringIndexer
+from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.sql import SparkSession
+from pyspark.ml import PipelineModel
+from pyspark.ml.classification import DecisionTreeClassifier
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.mllib.clustering import KMeans, KMeansModel
 
 if __name__ == "__main__":
-    spark = SparkSession\
-        .builder\
-        .appName("d_tree_c")\
-        .getOrCreate()
+
+    sconf = SparkConf().setAppName("d_tree_c").set('spark.sql.warehouse.dir', 'file://opt/spark/spark-warehouse/')
+    sc = SparkContext(conf=sconf)  # SparkContext
+    spark = SparkSession.builder.appName("d_tree_c").getOrCreate()
     
     # Load the data stored in LIBSVM format as a DataFrame.
     data = spark.read.format("libsvm").load("../all_dataset-fixed-libsvm.txt")
@@ -56,4 +63,5 @@ if __name__ == "__main__":
     print(treeModel)
     # $example off$
 
+    sc.stop()
     spark.stop()
