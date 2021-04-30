@@ -22,7 +22,7 @@ Well, it's just that :P. Make 5 ec2 instances (with appropriate permissions and 
 
 ### Setting up environment
 
-Run ```bash ./setup.sh ``` to create the environment for hadoop + spark + java. After this, type ```bash echo $CLASSPATH``` and the output should be:
+Run ```./setup.sh ``` to create the environment for hadoop + spark + java. After this, type ```echo $CLASSPATH``` and the output should be:
 ```bash
 /home/ubuntu/PredictOverApacheSpark/aws_sdk/lib/*:/home/ubuntu/PredictOverApacheSpark/aws_sdk/third-party/lib/*:/home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/jars/*
 ```
