@@ -100,4 +100,6 @@ cat hadoop_config_files/core-site.xml > bin_hadoop/etc/hadoop/core-site.xml
 
 cat hadoop_config_files/hdfs-site.xml > bin_hadoop/etc/hadoop/hdfs-site.xml
 
+cat hadoop_config_files/hadoop-env.sh > bin_hadoop/etc/hadoop/hadoop-env.sh
+
 sudo mkdir -p /opt/hadoop_tmp/hdfs
