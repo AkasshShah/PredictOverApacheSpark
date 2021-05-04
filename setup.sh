@@ -47,7 +47,7 @@ z=$(tar -tzf hadoop-3.2.2.tar.gz | head -1 | cut -f1 -d"/")
 
 tar -xvzf hadoop-3.2.2.tar.gz
 
-mv $y bin_hadoop
+mv $z bin_hadoop
 
 rm -rf hadoop-3.2.2.tar.gz
 
