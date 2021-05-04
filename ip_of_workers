@@ -1,4 +1,4 @@
-# ip addresses of workers go here: (without the `#` in front, of course)
+# ip addresses of workers go here: (preferably private static IPs)
 172.31.93.24 # worker1
 172.31.91.67 # worker2
 172.31.92.157 # worker3

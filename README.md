@@ -24,18 +24,17 @@ Well, it's just that :P. Make 5 ec2 instances (with appropriate permissions and 
 
 Run ```./setup.sh ``` to create the environment for hadoop + spark + java. After this, type ```echo $CLASSPATH``` and the output should be:
 ```bash
-/home/ubuntu/PredictOverApacheSpark/aws_sdk/lib/*:/home/ubuntu/PredictOverApacheSpark/aws_sdk/third-party/lib/*:/home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/jars/*
+/home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/jars/*
 ```
 If it is not something like listed above, then run the following command in the terminal:
 ```bash
-export CLASSPATH=$(pwd)/aws_sdk/lib/*:$(pwd)/aws_sdk/third-party/lib/*:$(pwd)/spark_bin_hadoop/jars/*:
+export CLASSPATH=$(pwd)/spark_bin_hadoop/jars/*:
 ```
 
-After that, the master needs to run the following code in the terminal:
+<!-- After that, the master needs to run the following code in the terminal:
 ```bash
-eval `ssh-agent`
-ssh-add ssh_keys/node_comms
-```
+eval `ssh-agent` && ssh-add ssh_keys/node_comms
+``` -->
 
 ### Decide which is master and which are workers
 
@@ -43,6 +42,7 @@ First, change the ip addresses in `ip_of_workers` & in `setup.sh` to match the i
 
 In the master node, run
 ```bash
+# cd /home/ubuntu/PredictOverApacheSpark
 ./setup-master.sh && eval `ssh-agent` && ssh-add ssh_keys/node_comms
 ```
 

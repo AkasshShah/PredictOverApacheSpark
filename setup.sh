@@ -41,6 +41,15 @@ mv $y spark_bin_hadoop
 # rm -rf aws-java-sdk.zip 
 rm -rf spark-3.1.1-bin-hadoop3.2.tgz
 
+wget https://apache.claz.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz
+
+z=$(tar -tzf hadoop-3.2.2.tar.gz | head -1 | cut -f1 -d"/")
+
+tar -xvzf hadoop-3.2.2.tar.gz
+
+mv $y bin_hadoop
+
+rm -rf hadoop-3.2.2.tar.gz
 
 
 
@@ -81,3 +90,12 @@ cat ssh_keys/node_comms.pub >> ~/.ssh/authorized_keys
 # we should do this manually in terminal for the master only.
 # cat ip_of_workers > spark_bin_hadoop/conf/workers
 
+# spark setup
+
+echo "spark.master                     spark://172.31.84.38:7077" > spark_bin_hadoop/conf/spark-defaults.conf
+
+# hadoop setup
+
+cat hadoop_config_files/core-site.xml > bin_hadoop/etc/hadoop/core-site.xml
+
+cat hadoop_config_files/hdfs-site.xml > bin_hadoop/etc/hadoop/hdfs-site.xml
