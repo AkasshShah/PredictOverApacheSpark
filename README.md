@@ -46,9 +46,13 @@ In the master node, run
 ./setup-master.sh && eval `ssh-agent` && ssh-add ssh_keys/node_comms
 ```
 
-### Start spark over the given 5 nodes (1 master and 4 workers)
+### Start spark & hadoop after a little more setup, over the given 5 nodes (1 master and 4 workers)
 
 ```bash
+cd bin_hadoop
+./bin/hdfs namenode -format
+./sbin/start-dfs.sh
+cd ..
 cd spark_bin_hadoop/
 ./sbin/start-all.sh
 ```
@@ -62,7 +66,7 @@ Now spark should be running as expected over the cluster
 # assuming that the current working directory is spark_bin_hadoop
 
 # first we need to delete the previous save, or else it gives us an error. alternatively, we could just rename it or something...
-rm ../model_save/ -rf && ./bin/spark-submit ../scripts/d_tree_c.py
+
 ```
 
 ## Creating the Dockerfile
