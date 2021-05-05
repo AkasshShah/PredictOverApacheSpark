@@ -45,7 +45,8 @@ if __name__ == "__main__":
     model = pipeline.fit(trainingData)
 
     # save
-    model.save("../model_save")
+    # model.save("../model_save")
+    model.save("hdfs://ip-172-31-84-38.ec2.internal:9000/model_save")
 
     # Make predictions.
     predictions = model.transform(testData)
