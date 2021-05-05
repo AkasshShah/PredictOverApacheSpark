@@ -68,9 +68,7 @@ Now spark should be running as expected over the cluster
 # cd spark_bin_hadoop/ 
 # assuming that the current working directory is spark_bin_hadoop
 cd /home/ubuntu/PredictOverApacheSpark/spark_bin_hadoop/
-./bin/spark-submit ../scripts/d_tree_c.py 
-# first we need to delete the previous save, or else it gives us an error. alternatively, we could just rename it or something...
-
+./bin/spark-submit ../scripts/d_tree_c.py
 ```
 
 ## Creating the Dockerfile
