@@ -19,11 +19,11 @@
 <configuration>
   <property>
     <name>dfs.datanode.data.dir</name>
-    <value>file:///opt/hadoop_tmp/hdfs/datanode</value>
+    <value>file:///home/ubuntu/hadoop_tmp/hdfs/datanode</value>
   </property>
   <property>
     <name>dfs.namenode.name.dir</name>
-    <value>file:///opt/hadoop_tmp/hdfs/namenode</value>
+    <value>file:///home/ubuntu/hadoop_tmp/hdfs/namenode</value>
   </property>
   <property>
     <name>dfs.replication</name>
