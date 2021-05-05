@@ -21,6 +21,6 @@
     <name>fs.defaultFS</name>
     <!-- <value>hdfs://localhost:9000</value> -->
     <!-- here, change out the IP address so that it is that of the master's -->
-    <value>hdfs://172.31.84.38:9000</value>
+    <value>hdfs://ip-172-31-84-38.ec2.internal:9000</value>
   </property>
 </configuration>
