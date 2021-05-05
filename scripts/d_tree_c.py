@@ -32,8 +32,12 @@ if __name__ == "__main__":
 
     # Split the data into training and test sets (30% held out for testing)
     # (trainingData, testData) = data.randomSplit([0.7, 0.3])
-    trainingData = spark.read.format("libsvm").load("../TrainingDataset-fixed-libsvm.txt")
-    testData = spark.read.format("libsvm").load("../ValidationDataset-fixed-libsvm.txt")
+
+    # trainingData = spark.read.format("libsvm").load("../TrainingDataset-fixed-libsvm.txt")
+    # testData = spark.read.format("libsvm").load("../ValidationDataset-fixed-libsvm.txt")
+    # /home/ubuntu/PredictOverApacheSpark
+    trainingData = spark.read.format("libsvm").load("file:///home/ubuntu/PredictOverApacheSpark/TrainingDataset-fixed-libsvm.txt")
+    testData = spark.read.format("libsvm").load("file:///home/ubuntu/PredictOverApacheSpark/ValidationDataset-fixed-libsvm.txt")
 
     # Train a DecisionTree model.
     dt = DecisionTreeClassifier(labelCol="indexedLabel", featuresCol="indexedFeatures")

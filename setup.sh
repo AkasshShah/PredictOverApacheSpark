@@ -102,4 +102,6 @@ cat hadoop_config_files/hdfs-site.xml > bin_hadoop/etc/hadoop/hdfs-site.xml
 
 cat hadoop_config_files/hadoop-env.sh > bin_hadoop/etc/hadoop/hadoop-env.sh
 
+cat hadoop_config_files/spark-env.sh > spark_bin_hadoop/conf/spark-env.sh
+
 sudo mkdir -p /opt/hadoop_tmp/hdfs
