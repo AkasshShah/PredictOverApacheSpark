@@ -14,7 +14,7 @@ from pyspark.mllib.clustering import KMeans, KMeansModel
 
 if __name__ == "__main__":
 
-    sconf = SparkConf().setAppName("d_tree_c").set('spark.sql.warehouse.dir', 'file://opt/spark/spark-warehouse/')
+    sconf = SparkConf().setAppName("d_tree_c").set('spark.sql.warehouse.dir', 'file:///home/ubuntu/spark-warehouse/')
     sc = SparkContext(conf=sconf)  # SparkContext
     spark = SparkSession.builder.appName("d_tree_c").getOrCreate()
     

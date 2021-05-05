@@ -50,9 +50,10 @@ In the master node, run
 
 ```bash
 cd bin_hadoop
-./bin/hdfs namenode -format
+./bin/hdfs namenode -format -force
 ./sbin/start-dfs.sh
-cd ..
+./bin/hadoop fs -mkdir /model_save
+cd /home/ubuntu/PredictOverApacheSpark
 cd spark_bin_hadoop/
 ./sbin/start-all.sh
 ```
